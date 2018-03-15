@@ -38,7 +38,7 @@ app.get('/ea-web',function(req,res){
         res.render('web_ea.html',{title:req.query.toto});
     });
 
-app.post('/ea-path',function(req,res){
+app.post('/ea-web',function(req,res){
     
 if(req.body.start){
     status = 1 ;
