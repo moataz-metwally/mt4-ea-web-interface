@@ -34,8 +34,15 @@ app.get('/ea-check',function(req,res){
 
 app.get('/ea-web',function(req,res){
     
+   var status_text="";
+   
+   if(status){
+	   status_text="Running";
+   }else{
+	   status_text="Stopped";
+   }
 
-        res.render('web_ea.html',{title:req.query.toto});
+        res.render('web_ea.html',{status_ea:status_text});
     });
 
 app.post('/ea-web',function(req,res){
@@ -54,12 +61,18 @@ else if(req.body.close_all_pendings){
 
     close_all_pending_orders = 1;
 }
+ var status_text="";
+ if(status){
+	   status_text="Running";
+   }else{
+	   status_text="Stopped";
+   }
 
   console.log("Status:"+status+"\r\n");
   console.log("close_all_orders:"+close_all_orders+"\r\n");
   console.log("close_all_pending_orders:"+close_all_pending_orders+"\r\n");
 
-    res.render('web_ea.html',{title:req.query.toto});
+    res.render('web_ea.html',{status_ea:status_text});
 });
 
 
